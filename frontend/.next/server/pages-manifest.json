@@ -3,5 +3,8 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/products": "pages/products.js",
-  "/update": "pages/update.js"
+  "/update": "pages/update.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/sell": "pages/sell.js",
+  "/product/[id]": "pages/product/[id].js"
 }
