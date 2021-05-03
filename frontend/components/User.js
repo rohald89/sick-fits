@@ -7,7 +7,21 @@ export const CURRENT_USER_QUERY = gql`
         id
         email
         name
-        #  TODO: query the card once we have it
+        cart {
+          id
+          quantity
+          product {
+            id
+            price
+            name
+            description
+            photo {
+              image {
+                publicUrlTransformed
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -15,6 +29,5 @@ export const CURRENT_USER_QUERY = gql`
 
 export function useUser() {
   const { data } = useQuery(CURRENT_USER_QUERY);
-  console.log(data);
   return data?.authenticatedItem;
 }
