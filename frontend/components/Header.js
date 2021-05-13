@@ -44,8 +44,8 @@ const Header = () => (
     </div>
     <div className="sub-bar">
       <p>search</p>
-      <Cart />
     </div>
+    <Cart />
   </HeaderStyles>
 );
 
