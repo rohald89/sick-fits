@@ -23,7 +23,7 @@ export default function AddToCart({ id }) {
       type="button"
       onClick={() => {
         addToCart();
-        openCart();
+        // openCart();
       }}
     >
       Add{loading && 'ing'} to Cart 🛒
