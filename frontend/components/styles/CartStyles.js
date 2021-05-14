@@ -11,11 +11,17 @@ const CartStyles = styled.div`
   width: 40%;
   min-width: 500px;
   bottom: 0;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
   transform: translateX(100%);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
+  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
   display: grid;
+  -ms-grid-rows: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
   ${(props) => props.open && `transform: translateX(0);`};
   header {
@@ -27,11 +33,13 @@ const CartStyles = styled.div`
     border-top: 10px double var(--black);
     margin-top: 2rem;
     padding-top: 2rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     font-size: 3rem;
     font-weight: 900;
     p {
-      margin-top: 0;
+      margin: 0;
     }
   }
   ul {
