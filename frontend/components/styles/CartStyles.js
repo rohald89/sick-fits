@@ -33,6 +33,7 @@ const CartStyles = styled.div`
     border-top: 10px double var(--black);
     margin-top: 2rem;
     padding-top: 2rem;
+    padding-bottom: 3rem;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
