@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
 import ErrorMessage from '../components/ErrorMessage';
+import SignIn from '../components/SignIn';
 import OrderItemStyles from '../components/styles/OrderItemStyles';
 import formatMoney from '../lib/formatMoney';
 
@@ -45,7 +46,17 @@ function countItemsInAnOrder(order) {
 export default function OrdersPage() {
   const { data, error, loading } = useQuery(USER_ORDERS_QUERY);
   if (loading) return <p>Loading...</p>;
-  if (error) return <ErrorMessage error={error} />;
+  if (error) {
+    if (error.message === 'You do not have access to this resource') {
+      return (
+        <>
+          <ErrorMessage error={error} />
+          <SignIn />
+        </>
+      );
+    }
+    return <ErrorMessage error={error} />;
+  }
   const { allOrders } = data;
   return (
     <div>
@@ -55,7 +66,7 @@ export default function OrdersPage() {
       <h2>You have {allOrders.length} orders!</h2>
       <OrderUl>
         {allOrders.map((order) => (
-          <OrderItemStyles>
+          <OrderItemStyles key={order.id}>
             <Link href={`/order/${order.id}`}>
               <a>
                 <div className="order-meta">
