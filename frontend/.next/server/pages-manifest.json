@@ -3,8 +3,5 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/": "pages/index.js",
-  "/product/[id]": "pages/product/[id].js",
-  "/signin": "pages/signin.js",
-  "/products": "pages/products.js",
-  "/products/[page]": "pages/products/[page].js"
+  "/products": "pages/products.js"
 }

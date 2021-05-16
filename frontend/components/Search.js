@@ -92,7 +92,7 @@ export default function Search() {
             </DropDownItem>
           ))}
         {isOpen && !items.length && !loading && (
-          <DropDownItem>Sorry, No items found form {inputValue}</DropDownItem>
+          <DropDownItem>Sorry, No items found for {inputValue}</DropDownItem>
         )}
       </DropDown>
     </SearchStyles>
