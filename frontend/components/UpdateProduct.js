@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import DisplayError from './ErrorMessage';
 import Form from './styles/Form';
+import { useUser } from './User';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
@@ -11,6 +12,9 @@ const SINGLE_PRODUCT_QUERY = gql`
       name
       description
       price
+      user {
+        id
+      }
     }
   }
 `;
@@ -35,6 +39,7 @@ const UPDATE_PRODUCT_MUTATION = gql`
 `;
 
 export default function UpdateProduct({ id }) {
+  const { id: userId } = useUser();
   // 1. Get existing product
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },
@@ -48,7 +53,8 @@ export default function UpdateProduct({ id }) {
   // 2.5 create state for form inputs
   const { inputs, handleChange, clearForm, resetForm } = useForm(data?.Product);
   if (loading) return <p>Loading...</p>;
-
+  if (data?.Product.user?.id !== userId)
+    return <p>You are not the owner of this product</p>;
   // 3. need the form to handle the updates
   return (
     <Form
