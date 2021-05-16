@@ -8,7 +8,7 @@ import AddToCart from './AddToCart';
 import { useUser } from './User';
 
 export default function Product({ product }) {
-  const { id } = useUser();
+  const me = useUser();
   return (
     <ItemStyles>
       <img
@@ -21,7 +21,7 @@ export default function Product({ product }) {
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className="buttonList">
-        {id === product.user.id && (
+        {me?.id === product.user.id && (
           <Link
             href={{
               pathname: '/update',
@@ -34,7 +34,7 @@ export default function Product({ product }) {
           </Link>
         )}
         <AddToCart id={product.id} />
-        {id === product.user.id && (
+        {me?.id === product.user.id && (
           <DeleteProduct id={product.id}>Delete</DeleteProduct>
         )}
       </div>

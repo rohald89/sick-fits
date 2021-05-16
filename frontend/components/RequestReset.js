@@ -44,7 +44,7 @@ export default function RequestReset() {
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Request a password Reset</h2>
       <Error error={error} />
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         {data?.sendUserPasswordResetLink === null && (
           <p>Success! Check your email for a link!</p>
         )}

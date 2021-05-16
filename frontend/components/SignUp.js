@@ -48,7 +48,7 @@ export default function SignUp() {
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Up For An Account</h2>
       <Error error={error} />
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         {data?.createUser && (
           <p>
             Signed up with {data.createUser.email} - Please go ahead and Sign
