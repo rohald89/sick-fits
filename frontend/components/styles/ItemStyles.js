@@ -28,9 +28,14 @@ const Item = styled.div`
     background: var(--lightGray);
     & > * {
       background: white;
+      color: black;
       border: 0;
       font-size: 1rem;
       padding: 1rem;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;
