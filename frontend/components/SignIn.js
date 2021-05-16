@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import Router from 'next/router';
 import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import { CURRENT_USER_QUERY } from './User';
@@ -38,7 +39,7 @@ export default function SignIn() {
     e.preventDefault();
     // send email and password to the graphqlAPI
     await signin();
-    resetForm();
+    Router.back();
   }
 
   const error =
