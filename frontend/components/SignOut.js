@@ -1,5 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+import Router from 'next/router';
 import { CURRENT_USER_QUERY } from './User';
 
 const SIGNOUT_MUTATION = gql`
@@ -13,7 +14,15 @@ export default function SignOut() {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   return (
-    <button type="button" onClick={signout}>
+    <button
+      type="button"
+      onClick={() => {
+        signout();
+        Router.push({
+          pathname: `/`,
+        });
+      }}
+    >
       Sign Out
     </button>
   );
