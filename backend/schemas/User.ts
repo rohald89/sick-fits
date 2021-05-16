@@ -6,7 +6,7 @@ import { permissions, rules } from '../access';
 export const User = list({
   access: {
     create: () => true, // in order for signing up anyone can create a user
-    read: rules.canManageUsers,
+    read: () => true,
     update: rules.canManageUsers,
     // only people with the permission can delete themselves!
     // You can't delete yourself
