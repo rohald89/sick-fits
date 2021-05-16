@@ -1,7 +1,9 @@
+import RequestReset from '../components/RequestReset';
+
 export default function AccountPage() {
   return (
     <div>
-      <p>Hello!</p>
+      <RequestReset />
     </div>
   );
 }
