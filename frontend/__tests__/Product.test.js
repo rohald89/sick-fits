@@ -13,10 +13,10 @@ describe('<Product/>', () => {
       </MockedProvider>
     );
     const priceTag = screen.getByText('$50');
-    debug(priceTag);
+    // debug(priceTag);
     expect(priceTag).toBeInTheDocument();
     const link = container.querySelector('a');
-    debug(link);
+    // debug(link);
     expect(link).toHaveAttribute('href', '/product/abc123');
     expect(link).toHaveTextContent(product.name);
   });
@@ -28,5 +28,18 @@ describe('<Product/>', () => {
       </MockedProvider>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('Renders the image properly', () => {
+    const { container, debug } = render(
+      <MockedProvider>
+        <Product product={product} />
+      </MockedProvider>
+    );
+    // grab the image
+    const img = screen.getByAltText(product.name);
+    // getBy always returns one element, getAllBy returns multiple elements
+    // debug(img);
+    expect(img).toBeInTheDocument();
   });
 });
